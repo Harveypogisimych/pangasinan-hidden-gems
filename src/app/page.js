@@ -96,8 +96,8 @@ export default function HomePage() {
               <span>⌕</span>
               <h3>No destinations found</h3>
               <p>
-                We couldn't find a destination matching
-                "{searchTerm}". Try another keyword.
+                We couldn&apos;t find a destination matching
+                &quot;{searchTerm}&quot;. Try another keyword.
               </p>
 
               <button
