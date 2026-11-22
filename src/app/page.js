@@ -1,95 +1,144 @@
-import Image from "next/image";
-import styles from "./page.module.css";
 
-export default function Home() {
+"use client";
+
+import { useState } from "react";
+
+import SiteHeader from "@/components/organisms/SiteHeader";
+import HeroSection from "@/components/organisms/HeroSection";
+import DestinationCard from "@/components/molecules/DestinationCard";
+import SectionLabel from "@/components/atoms/SectionLabel";
+import destinations from "@/data/destinations";
+
+export default function HomePage() {
+  const [searchTerm, setSearchTerm] = useState("");
+
+  const filteredDestinations = destinations.filter((destination) => {
+    const search = searchTerm.toLowerCase().trim();
+
+    return (
+      destination.name.toLowerCase().includes(search) ||
+      destination.location.toLowerCase().includes(search) ||
+      destination.category.toLowerCase().includes(search) ||
+      destination.description.toLowerCase().includes(search)
+    );
+  });
+
   return (
-    <div className={styles.page}>
-      <main className={styles.main}>
-        <Image
-          className={styles.logo}
-          src="https://nextjs.org/icons/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol>
-          <li>
-            Get started by editing <code>src/app/page.js</code>.
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+    <main>
+      <SiteHeader />
 
-        <div className={styles.ctas}>
-          <a
-            className={styles.primary}
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className={styles.logo}
-              src="https://nextjs.org/icons/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={styles.secondary}
-          >
-            Read our docs
-          </a>
+      <HeroSection />
+
+      <section
+        className="destinations-section"
+        id="destinations"
+      >
+        <div className="section-heading">
+          <div>
+            <SectionLabel>THE PLACES</SectionLabel>
+
+            <h2>
+              Uncover something
+              <br />
+              <span>extraordinary.</span>
+            </h2>
+          </div>
+
+          <p>
+            From peaceful rivers to hidden coastal
+            treasures, explore the destinations that
+            make Pangasinan special.
+          </p>
         </div>
-      </main>
-      <footer className={styles.footer}>
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
+
+        {/* SEARCH BAR */}
+        <div className="search-container">
+          <div className="search-box">
+            <span className="search-icon">⌕</span>
+
+            <input
+              type="search"
+              placeholder="Search destinations, locations, or categories..."
+              value={searchTerm}
+              onChange={(event) => setSearchTerm(event.target.value)}
+              aria-label="Search destinations"
+            />
+
+            {searchTerm && (
+              <button
+                className="clear-search"
+                onClick={() => setSearchTerm("")}
+                aria-label="Clear search"
+              >
+                ✕
+              </button>
+            )}
+          </div>
+
+          <p className="search-results">
+            {searchTerm
+              ? `${filteredDestinations.length} destination(s) found`
+              : `Explore all ${destinations.length} destinations`}
+          </p>
+        </div>
+
+        {/* DESTINATION RESULTS */}
+        <div className="destination-grid">
+          {filteredDestinations.length > 0 ? (
+            filteredDestinations.map((destination) => (
+              <DestinationCard
+                key={destination.id}
+                destination={destination}
+              />
+            ))
+          ) : (
+            <div className="no-results">
+              <span>⌕</span>
+              <h3>No destinations found</h3>
+              <p>
+                We couldn't find a destination matching
+                "{searchTerm}". Try another keyword.
+              </p>
+
+              <button
+                onClick={() => setSearchTerm("")}
+                className="reset-search"
+              >
+                View all destinations
+              </button>
+            </div>
+          )}
+        </div>
+      </section>
+
+      <section className="about-section" id="about">
+        <SectionLabel>OUR PURPOSE</SectionLabel>
+
+        <h2>
+          Every destination
+          <br />
+          has a story worth discovering.
+        </h2>
+
+        <p>
+          Pangasinan Hidden Gems is a digital tourism
+          showcase designed to introduce visitors to
+          the natural beauty and remarkable places
+          of Pangasinan.
+        </p>
+      </section>
+
+      <footer className="site-footer">
+        <h3>PANGASINAN HIDDEN GEMS</h3>
+
+        <p>
+          Discover more. Explore deeper. Experience Pangasinan.
+        </p>
+
+        <small>
+          © 2026 Pangasinan Hidden Gems. All rights reserved.
+        </small>
       </footer>
-    </div>
+    </main>
   );
 }
