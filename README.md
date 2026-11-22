@@ -1,40 +1,128 @@
-<<<<<<< HEAD
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Pangasinan Hidden Gems
 
-## Getting Started
+### Discover the Beauty, Culture, and Hidden Destinations of Pangasinan
 
-First, run the development server:
+## Project Description
+
+**Pangasinan Hidden Gems** is a tourism website developed to showcase the beautiful destinations, natural attractions, and cultural heritage of Pangasinan, Philippines. It aims to help tourists and local visitors discover interesting places to explore through an accessible, responsive, and user-friendly website.
+
+The website provides information about different tourist destinations, allowing users to explore the hidden attractions and appreciate the beauty of Pangasinan.
+
+## Objectives
+
+- To promote the tourism destinations of Pangasinan.
+- To provide accessible information about local tourist attractions.
+- To create a responsive and user-friendly tourism website.
+- To encourage tourists to explore the natural and cultural beauty of Pangasinan.
+
+## Technologies Used
+
+- **Next.js 14** – React framework used to develop the website.
+- **React.js** – Used to build reusable user interface components.
+- **JavaScript** – Main programming language.
+- **HTML5** – Structures the website content.
+- **CSS3** – Handles the website's styling and responsive layout.
+- **Git and GitHub** – Used for version control and project hosting.
+- **GitHub Pages** – Used for publishing the website.
+
+## Features
+
+- **Homepage** – Introduces Pangasinan and highlights its tourist destinations.
+- **Destination Showcase** – Displays selected hidden gems and tourist attractions.
+- **Destination Cards** – Presents destination images and brief descriptions.
+- **Responsive Design** – Adapts the website layout to different screen sizes.
+- **Navigation** – Allows users to easily browse the website.
+
+## Project Structure
+
+```text
+pangasinan-hidden-gems/
+├── public/
+│   └── images/
+├── src/
+│   ├── app/
+│   │   ├── page.js
+│   │   ├── layout.js
+│   │   └── globals.css
+│   └── components/
+│       └── molecules/
+│           └── DestinationCard.js
+├── .github/
+│   └── workflows/
+│       └── deploy.yml
+├── package.json
+├── package-lock.json
+├── next.config.js
+└── README.md
+```
+
+*Note: The structure above shows the main project files. Additional folders and components may be included in the actual project.*
+
+## Installation and Setup
+
+To run the project locally, follow these steps:
+
+**1. Clone the repository**
+
+```bash
+git clone https://github.com/Harveypogisimych/pangasinan-hidden-gems.git
+```
+
+**2. Navigate to the project directory**
+
+```bash
+cd pangasinan-hidden-gems
+```
+
+**3. Install dependencies**
+
+```bash
+npm install
+```
+
+**4. Run the development server**
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+**5. Open the website**
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+Visit:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```text
+http://localhost:3000
+```
 
-## Learn More
+## Building the Project
 
-To learn more about Next.js, take a look at the following resources:
+To create an optimized production build, execute:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+npm run build
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Deployment
 
-## Deploy on Vercel
+The project is hosted using GitHub Pages with GitHub Actions for automated deployment.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Whenever changes are pushed to the `main` branch, the GitHub Actions workflow automatically builds and deploys the website.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
-=======
-# pangasinan-hidden-gems
->>>>>>> d5333e8efee35975c99ff4a630a7fb12565e73c2
+**Live Website:**  
+https://harveypogisimych.github.io/pangasinan-hidden-gems/
+
+## Repository
+
+GitHub Repository:  
+https://github.com/Harveypogisimych/pangasinan-hidden-gems
+
+## Project Information
+
+**Project Title:** Pangasinan Hidden Gems  
+**Project Type:** Tourism Website  
+**Framework:** Next.js 14  
+**Deployment Platform:** GitHub Pages
+
+## Acknowledgment
+
+This project was developed as part of an academic activity to apply web development concepts and technologies in creating a responsive tourism website that promotes the tourist destinations of Pangasinan, Philippines.
